@@ -21,24 +21,24 @@ public class ProductionController {
         return "this is a test endpoint";
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Candy> getAllCandies(){
         return candyService.getAll();
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public Candy createNewCandy(@RequestBody Candy candy){
         Candy newCandy = candyService.createCandy(candy);
         return newCandy;
     }
 
-    @PutMapping("/{candy_id}")
-    public Candy editCandy(Candy target){
+    @PutMapping("")
+    public Candy editCandy(@RequestBody Candy target){
         return candyService.editCandy(target);
     }
 
-    @DeleteMapping("/{candy_id}")
-    public void deleteCandyById(int candyId){
+    @DeleteMapping("{candy_id}")
+    public void deleteCandyById(@PathVariable ("candy_id") int candyId){
         candyService.deleteCandyById(candyId);
     }
 }

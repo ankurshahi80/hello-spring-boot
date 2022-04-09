@@ -28,7 +28,7 @@ public class CandyServiceImpl implements CandyService{
     @Override
     @Transactional
     public Candy editCandy(Candy c) {
-        Candy target = candyRepo.getById(c.getId());
+        Candy target = candyRepo.findById(c.getId()).get();
 
         target.setName(c.getName());
         target.setDescription(c.getDescription());
